@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230110132152">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230110171628">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230110132152" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230110132152" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230110171628" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230110171628" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -60,7 +60,7 @@
 							<input class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
 						</div>
 					</div>
-					<div class="header__middle--right">
+					<div data-da=".categories__menu--list,1200" class="header__middle--right">
 						<a type="tel" class="header__rigth--tel">
 							<i class="fa-solid fa-phone-volume"></i>
 							1800-000-000
@@ -88,56 +88,62 @@
 							<p class="bottom__subtitle">Select Categories</p>
 						</div>
 						<nav class="header__bottom--menu">
-							<div data-showmore data-showmore-media="768,max" data-da=".categories__menu--list,992,0">
-								<ul data-showmore-content="200" class="bottom__menu--list">
+							<div class="bottom__menu--data" data-showmore data-showmore-media="992,max" data-da=".categories__menu--list,992,0">
+								<ul data-showmore-content="20" class="bottom__menu--list">
 									<li class="menu__list--item">Home</li>
 									<li class="menu__list--item">Product</li>
 									<li class="menu__list--item">Stores</li>
 									<li class="menu__list--item">Contact</li>
 								</ul>
 								<button hidden data-showmore-button type="button" class="block__more">
-									<span>Показати ще</span>
-									<span>Приховати</span>
+									<span>
+										<i class="fa-solid fa-chevron-down"></i>
+									</span>
+									<span>
+										<i class="fa-solid fa-chevron-up"></i>
+									</span>
 								</button>
 							</div>
-							<ul class="categories__menu--list">
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/vegetables-icon.webp" type="image/webp"><img src="img/vegetables-icon.png" alt="Icon menu vegetables"></picture>
-										Vegetables & Fruits
-									</a>
-								</li>
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/grocery-icon.webp" type="image/webp"><img src="img/grocery-icon.png" alt="Icon menu grocery"></picture>
-										Grocery & Staples
-									</a>
-								</li>
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/dairy-icon.webp" type="image/webp"><img src="img/dairy-icon.png" alt="Icon menu dairy"></picture>
-										Dairy & Eggs
-									</a>
-								</li>
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/beverages-icon.webp" type="image/webp"><img src="img/beverages-icon.png" alt="Icon menu beverages"></picture>
-										Beverages
-									</a>
-								</li>
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/snacks-icon.webp" type="image/webp"><img src="img/snacks-icon.png" alt="Icon menu snacks"></picture>
-										Snacks
-									</a>
-								</li>
-								<li class="menu__list--item">
-									<a href="#">
-										<picture><source srcset="img/home-icon.webp" type="image/webp"><img src="img/home-icon.png" alt="Icon menu home"></picture>
-										Home Care
-									</a>
-								</li>
-							</ul>
+							<div class="bottom__menu--datauser">
+								<ul class="categories__menu--list">
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/vegetables-icon.webp" type="image/webp"><img src="img/vegetables-icon.png" alt="Icon menu vegetables"></picture>
+											Vegetables & Fruits
+										</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/grocery-icon.webp" type="image/webp"><img src="img/grocery-icon.png" alt="Icon menu grocery"></picture>
+											Grocery & Staples
+										</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/dairy-icon.webp" type="image/webp"><img src="img/dairy-icon.png" alt="Icon menu dairy"></picture>
+											Dairy & Eggs
+										</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/beverages-icon.webp" type="image/webp"><img src="img/beverages-icon.png" alt="Icon menu beverages"></picture>
+											Beverages
+										</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/snacks-icon.webp" type="image/webp"><img src="img/snacks-icon.png" alt="Icon menu snacks"></picture>
+											Snacks
+										</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#">
+											<picture><source srcset="img/home-icon.webp" type="image/webp"><img src="img/home-icon.png" alt="Icon menu home"></picture>
+											Home Care
+										</a>
+									</li>
+								</ul>
+							</div>
 						</nav>
 					</div>
 					<div class="header__bottom--rigth">
@@ -158,7 +164,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230110132152"></script>
+	<script src="js/app.min.js?_v=20230110171628"></script>
 </body>
 
 </html>

@@ -410,7 +410,7 @@ svg path {
 }
 
 .header__container .header__middle .header__middle--left .search__input {
-  background: #F7F7F7;
+  background: #f7f7f7;
   border-radius: 3px;
   min-height: 36px;
   width: 340px;
@@ -454,7 +454,7 @@ svg path {
 
 .header__container .header__middle .header__middle--left .search__input.active {
   width: 80%;
-  top: 30%;
+  top: 150%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -655,11 +655,25 @@ svg path {
   overflow: auto;
 }
 
-.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item:not(:last-child) {
-  margin-bottom: 35px;
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right {
+  border-top: 1px solid #fff;
+  padding-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  gap: 10px;
+  color: #F7F7F7;
 }
 
-.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--list {
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--data {
+  margin-bottom: 15px;
+}
+
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--data .bottom__menu--list {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -672,8 +686,12 @@ svg path {
           align-items: flex-start;
 }
 
-.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--list .menu__list--item {
-  margin-bottom: 5px;
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--data .bottom__menu--list .menu__list--item {
+  margin-bottom: 15px;
+}
+
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--data .block__more span i {
+  color: #FFFFFF;
 }
 
 .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item {
@@ -822,6 +840,10 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list {
     width: 3.125%rem;
   }
+
+  .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item:not(:last-child) {
+    margin-bottom: 2.1875rem;
+  }
 }
 
 @media only screen and (max-width: 75em) {
@@ -877,6 +899,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     -webkit-transition: 0.3s ease;
     -o-transition: 0.3s ease;
     transition: 0.3s ease;
+    border: 1px solid grey;
   }
 
   .header__container .header__bottom .header__bottom--left .bottom__categories {
@@ -926,6 +949,10 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 
   .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list {
     width: 4.375%rem;
+  }
+
+  .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item:not(:last-child) {
+    margin-bottom: 0.9375rem;
   }
 }
 
@@ -1023,6 +1050,18 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 @supports not (width: clamp( 3.125%rem , 4.8295454545%rem  +  -2.2727272727%vw , 4.375%rem )) {
     .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list {
       width: calc(4.375%rem + -1.25% * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (margin-bottom: clamp( 0.9375rem , 0.4829545455rem  +  2.2727272727vw , 2.1875rem )) {
+    .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item:not(:last-child) {
+      margin-bottom: clamp( 0.9375rem , 0.4829545455rem  +  2.2727272727vw , 2.1875rem );
+    }
+}
+
+@supports not (margin-bottom: clamp( 0.9375rem , 0.4829545455rem  +  2.2727272727vw , 2.1875rem )) {
+    .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item:not(:last-child) {
+      margin-bottom: calc(0.9375rem + 1.25 * (100vw - 20rem) / 55);
     }
 }
 }
