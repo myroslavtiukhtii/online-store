@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230110171628">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230110192825">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230110171628" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230110171628" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230110192825" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230110192825" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -146,14 +146,47 @@
 							</div>
 						</nav>
 					</div>
-					<div class="header__bottom--rigth">
+					<div class="header__bottom--right">
 						<div data-ripple class="bottom__right--cart">
+							<div class="openbasket"></div>
 							<i class="fa-solid fa-cart-shopping"></i>
 							CART
 							<span class="cart__item">2</span>
 							<i class="fa-solid fa-caret-down"></i>
 						</div>
 					</div>
+				</div>
+				<div class="header__cart">
+					<h3 class="header__cart--title">Basket</h3>
+					<ul class="header__cart--list">
+						<li class="cart__list--item">
+							<h3 class="list__item--name">Cucumber</h3>
+							<picture><source srcset="img/products/products-cucumber.webp" type="image/webp"><img class="list__item--img" src="img/products/products-cucumber.png" alt="Cucumber"></picture>
+							<div class="list__item--calculate">
+								<button class="calculate__minus mobilesize--item">
+									<i class="fa-regular fa-square-minus"></i>
+								</button>
+								<span class="calculate__quantity mobilesize--item">5</span>
+								<button class="calculate__plus mobilesize--item">
+									<i class="fa-regular fa-square-plus"></i>
+								</button>
+								<span class="calculate__equals mobilesize--item">
+									<i class="fa-solid fa-equals"></i>
+								</span>
+								<p class="list__item--price mobilesize--item">2500</p>
+								<div class="list__item--delete mobilesize--item">
+									<i class="fa-solid fa-trash-can"></i>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<p class="header__cart--price">
+						Total price:
+						<span>2500</span>
+					</p>
+					<button class="header__cart--order">
+						Order
+					</button>
 				</div>
 			</div>
 		</header>
@@ -164,7 +197,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230110171628"></script>
+	<script src="js/app.min.js?_v=20230110192825"></script>
 </body>
 
 </html>

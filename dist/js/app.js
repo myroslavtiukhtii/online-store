@@ -394,6 +394,7 @@
     function documentActions(e) {
         const targetElement = e.target;
         if (targetElement.classList.contains("search-form__icon")) document.querySelector(".search__input").classList.toggle("active");
+        if (targetElement.classList.contains("openbasket")) document.querySelector(".header__cart").classList.toggle("active");
     }
     window["FLS"] = true;
     isWebp();
