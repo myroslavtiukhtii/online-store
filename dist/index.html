@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230111185248">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230112152004">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230111185248" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230111185248" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230112152004" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230112152004" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -265,12 +265,199 @@
 							</li>
 						</ul>
 						<div class="swiper-pagination"></div>
-						<div class="swiper-button-next">
-							<i class="fa-solid fa-angle-right"></i>
-						</div>
-						<div class="swiper-button-prev">
-							<i class="fa-solid fa-angle-left"></i>
-						</div>
+					</div>
+				</div>
+			</section>
+			<section class="categories">
+				<div class="categories__container">
+					<h2 class="categories__subtitle">
+						Shop by
+					</h2>
+					<h3 class="categories__title">
+						Categories
+					</h3>
+					<div class="swiper-categories">
+						<ul class="categories__list swiper-wrapper">
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/vegetables-icon.webp" type="image/webp"><img class="item__img" src="img/vegetables-icon.png" alt="Vegetables"></picture>
+								<span class="item__title">Vegetables & Fruits</span>
+							</li>
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/grocery-icon.webp" type="image/webp"><img class="item__img" src="img/grocery-icon.png" alt="Grocery & Staples"></picture>
+								<span class="item__title">Grocery & Staples</span>
+							</li>
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/dairy-icon.webp" type="image/webp"><img class="item__img" src="img/dairy-icon.png" alt="Dairy & Eggs"></picture>
+								<span class="item__title">Dairy & Eggs</span>
+							</li>
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/beverages-icon.webp" type="image/webp"><img class="item__img" src="img/beverages-icon.png" alt="Beverages"></picture>
+								<span class="item__title">Beverages</span>
+							</li>
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/snacks-icon.webp" type="image/webp"><img class="item__img" src="img/snacks-icon.png" alt="Snacks"></picture>
+								<span class="item__title">Snacks</span>
+							</li>
+							<li class="categories__list--item swiper-slide">
+								<picture><source srcset="img/home-icon.webp" type="image/webp"><img class="item__img" src="img/home-icon.png" alt="Home Care"></picture>
+								<span class="item__title">Home Care</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section class="products">
+				<div class="products__container">
+					<h2 class="products__subtitle">For You</h2>
+					<h3 class="products__title">Top Featured Products</h3>
+					<div class="swiper__topproducts">
+						<ul class="products__list swiper-wrapper">
+							<li class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture><source srcset="img/topproducts/top-apricot.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-apricot.png" alt="Fresh organic apricot"></picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title">Fresh organic apricot</h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice">$12</span>
+										<span class="item__main--oldprice">$15</span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items">4</span>
+									<button class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</li>
+							<li class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture><source srcset="img/topproducts/top-cucumber.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-cucumber.png" alt="Cucumber"></picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title">Cucumber</h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice">$12</span>
+										<span class="item__main--oldprice">$15</span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items">4</span>
+									<button class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</li>
+							<li class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture><source srcset="img/topproducts/top-nut.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-nut.png" alt="Hazelnuts filbert nut"></picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title">Hazelnuts filbert nut</h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice">$12</span>
+										<span class="item__main--oldprice">$15</span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items">4</span>
+									<button class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</li>
+							<li class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture><source srcset="img/topproducts/broccoli-top.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/broccoli-top.png" alt="Raw broccoli"></picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title">Raw broccoli</h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice">$12</span>
+										<span class="item__main--oldprice">$15</span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items">4</span>
+									<button class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</li>
+							<li class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture><source srcset="img/topproducts/quince-top.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/quince-top.png" alt="Organic quince"></picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title">Organic quince</h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice">$12</span>
+										<span class="item__main--oldprice">$15</span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items">4</span>
+									<button class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -280,7 +467,7 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230111185248"></script>
+	<script src="js/app.min.js?_v=20230112152004"></script>
 </body>
 
 </html>
