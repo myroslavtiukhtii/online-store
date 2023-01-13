@@ -686,6 +686,7 @@ svg path {
 
 .header__container .header__middle .header__middle--left .header__middle--select .select__body {
   width: 101px;
+  z-index: 99;
 }
 
 .header__container .header__middle .header__middle--left .search__input {
@@ -1555,6 +1556,157 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   font-size: 20px;
 }
 
+.bestvalues {
+  padding-bottom: 60px;
+}
+
+.bestvalues__container .bestvalues__subtitle {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 30px;
+  color: #7FAD39;
+}
+
+.bestvalues__container .bestvalues__title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 21px;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+
+.bestvalues__container .showmore .block__more {
+  width: 100%;
+  height: 48px;
+  background-color: #7FAD39;
+  color: #fff;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.bestvalues__container .bestvalues__discount--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item {
+  position: relative;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item img {
+  width: 100%;
+  height: 100%;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item .item__text {
+  position: absolute;
+  top: 15%;
+  left: 20px;
+  max-width: 170px;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--title {
+  font-weight: 900;
+  line-height: 34px;
+  text-transform: capitalize;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--subtitle {
+  font-weight: 300;
+  line-height: 34px;
+  text-transform: capitalize;
+}
+
+.bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+  position: absolute;
+  top: 75%;
+  left: 20px;
+  height: 50px;
+  background-color: #2A2A2A;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 19px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.no-webp .bestvalues__container .bestvalues__promo{
+  background-image: url(../img/bestvalues/promo-img.png); }
+
+.bestvalues__container .bestvalues__promo {
+  width: 100%;
+  min-height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.bestvalues__container .bestvalues__promo img {
+  width: 100%;
+  height: 100%;
+}
+
+.bestvalues__container .bestvalues__promo .promo__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+  font-weight: 900;
+  line-height: 34px;
+  text-transform: capitalize;
+  color: #FFFFFF;
+}
+
+.bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+  min-height: 40px;
+  background: rgba(127, 173, 57, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 2px dashed #FFFFFF;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
 @-webkit-keyframes locationUpDown {
   0% {
     -webkit-transform: translateY(0);
@@ -1692,6 +1844,54 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   .products__container .products__list .products__list--item .item__main .item__main--img {
     width: 11.625rem;
   }
+
+  .bestvalues__container .bestvalues__discount--list {
+    gap: 1.25rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item {
+    width: 23.5625rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item {
+    height: 18.125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--title {
+    font-size: 1.75rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--subtitle {
+    font-size: 1.75rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    width: 8.75rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    height: 3.125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    font-size: 1rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+    font-size: 1.5rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+    margin-bottom: 1.25rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+    width: 16.875rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+    font-size: 0.875rem;
+  }
 }
 
 @media (max-width: 75em) {
@@ -1705,6 +1905,11 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     height: -moz-max-content;
     height: max-content;
     top: 0;
+  }
+
+  .bestvalues__container .bestvalues__discount--list {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
@@ -1840,6 +2045,54 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 
   .products__container .products__list .products__list--item .item__main .item__main--img {
     width: 7.5rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list {
+    gap: 0.3125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item {
+    width: 17.3125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item {
+    height: 11.875rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--title {
+    font-size: 1.125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--subtitle {
+    font-size: 1.125rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    width: 6.25rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    height: 1.875rem;
+  }
+
+  .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+    font-size: 0.625rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+    font-size: 0.9375rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+    margin-bottom: 0.0625rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+    width: 10.625rem;
+  }
+
+  .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+    font-size: 0.625rem;
   }
 }
 
@@ -2023,6 +2276,150 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
       width: calc(7.5rem + 4.125 * (100vw - 20rem) / 55);
     }
 }
+
+@supports (gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
+    .bestvalues__container .bestvalues__discount--list {
+      gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem );
+    }
+}
+
+@supports not (gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
+    .bestvalues__container .bestvalues__discount--list {
+      gap: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 17.3125rem , 15.0397727273rem  +  11.3636363636vw , 23.5625rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item {
+      width: clamp( 17.3125rem , 15.0397727273rem  +  11.3636363636vw , 23.5625rem );
+    }
+}
+
+@supports not (width: clamp( 17.3125rem , 15.0397727273rem  +  11.3636363636vw , 23.5625rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item {
+      width: calc(17.3125rem + 6.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (height: clamp( 11.875rem , 9.6022727273rem  +  11.3636363636vw , 18.125rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item {
+      height: clamp( 11.875rem , 9.6022727273rem  +  11.3636363636vw , 18.125rem );
+    }
+}
+
+@supports not (height: clamp( 11.875rem , 9.6022727273rem  +  11.3636363636vw , 18.125rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item {
+      height: calc(11.875rem + 6.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--title {
+      font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--title {
+      font-size: calc(1.125rem + 0.625 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--subtitle {
+      font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.125rem , 0.8977272727rem  +  1.1363636364vw , 1.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__text .item__text--subtitle {
+      font-size: calc(1.125rem + 0.625 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 6.25rem , 5.3409090909rem  +  4.5454545455vw , 8.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      width: clamp( 6.25rem , 5.3409090909rem  +  4.5454545455vw , 8.75rem );
+    }
+}
+
+@supports not (width: clamp( 6.25rem , 5.3409090909rem  +  4.5454545455vw , 8.75rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      width: calc(6.25rem + 2.5 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (height: clamp( 1.875rem , 1.4204545455rem  +  2.2727272727vw , 3.125rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      height: clamp( 1.875rem , 1.4204545455rem  +  2.2727272727vw , 3.125rem );
+    }
+}
+
+@supports not (height: clamp( 1.875rem , 1.4204545455rem  +  2.2727272727vw , 3.125rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      height: calc(1.875rem + 1.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 0.625rem , 0.4886363636rem  +  0.6818181818vw , 1rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      font-size: clamp( 0.625rem , 0.4886363636rem  +  0.6818181818vw , 1rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.625rem , 0.4886363636rem  +  0.6818181818vw , 1rem )) {
+    .bestvalues__container .bestvalues__discount--list .discount__list--item .item__button {
+      font-size: calc(0.625rem + 0.375 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 0.9375rem , 0.7329545455rem  +  1.0227272727vw , 1.5rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+      font-size: clamp( 0.9375rem , 0.7329545455rem  +  1.0227272727vw , 1.5rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.9375rem , 0.7329545455rem  +  1.0227272727vw , 1.5rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+      font-size: calc(0.9375rem + 0.5625 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (margin-bottom: clamp( 0.0625rem , -0.3693181818rem  +  2.1590909091vw , 1.25rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+      margin-bottom: clamp( 0.0625rem , -0.3693181818rem  +  2.1590909091vw , 1.25rem );
+    }
+}
+
+@supports not (margin-bottom: clamp( 0.0625rem , -0.3693181818rem  +  2.1590909091vw , 1.25rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--title {
+      margin-bottom: calc(0.0625rem + 1.1875 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 10.625rem , 8.3522727273rem  +  11.3636363636vw , 16.875rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+      width: clamp( 10.625rem , 8.3522727273rem  +  11.3636363636vw , 16.875rem );
+    }
+}
+
+@supports not (width: clamp( 10.625rem , 8.3522727273rem  +  11.3636363636vw , 16.875rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+      width: calc(10.625rem + 6.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 0.625rem , 0.5340909091rem  +  0.4545454545vw , 0.875rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+      font-size: clamp( 0.625rem , 0.5340909091rem  +  0.4545454545vw , 0.875rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.625rem , 0.5340909091rem  +  0.4545454545vw , 0.875rem )) {
+    .bestvalues__container .bestvalues__promo .promo__text .promo__text--cupon {
+      font-size: calc(0.625rem + 0.25 * (100vw - 20rem) / 55);
+    }
+}
 }
 
 @media (any-hover: hover) {
@@ -2087,3 +2484,5 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     scale: 1.1;
   }
 }
+
+.webp .bestvalues__container .bestvalues__promo{ background-image: url(../img/bestvalues/promo-img.webp); }
