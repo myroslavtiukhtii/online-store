@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230113145534">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230114195123">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230113145534" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230113145534" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230114195123" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230114195123" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -823,7 +823,9 @@
 				<div class="footer__blockmenu">
 					<ul class="footer__blockmenu--address">
 						<li class="blockmenu__address--item">
-							<picture><source srcset="img/footer/footer-logo.webp" type="image/webp"><img src="img/footer/footer-logo.png" alt="Logo company"></picture>
+							<a href="#">
+								<picture><source srcset="img/footer/footer-logo.webp" type="image/webp"><img src="img/footer/footer-logo.png" alt="Logo company"></picture>
+							</a>
 						</li>
 						<li class="blockmenu__address--item">
 							Address: 60-49 Road 11378 New York
@@ -835,67 +837,89 @@
 							Email: hello@colorlib.com
 						</li>
 					</ul>
-					<ul class="footer__blockmenu--links">
-						<li class="blockmenu__links--item">
-							<a href="#">
-								Useful link
-							</a>
-						</li>
-						<li class="blockmenu__links--item">
-							<a href="#">
-								About Us
-							</a>
-						</li>
-						<li class="blockmenu__links--item">
-							<a href="#">
-								About Our Shop
-							</a>
-						</li>
-						<li class="blockmenu__links--item">
-							<a href="#">
-								Delivery information
-							</a>
-						</li>
-						<li class="blockmenu__links--item">
-							<a href="#">
-								Privacy Policy
-							</a>
-						</li>
-						<li class="blockmenu__links--item">
-							<a href="#">
-								Our Sitemap
-							</a>
-						</li>
-					</ul>
-					<nav class="footer__blockmenu--menu">
-						<ul class="blockmenu__menu--list">
-							<li class="menu__list--item">
-								<a href="#">Home</a>
+					<div data-showmore data-showmore-media="768,max" class="showmore">
+						<ul data-showmore-content="25" class="footer__blockmenu--links">
+							<li class="blockmenu__links--item">
+								<a class="item__link title" href="#">
+									Useful link
+								</a>
 							</li>
-							<li class="menu__list--item">
-								<a href="#">Product</a>
+							<li class="blockmenu__links--item">
+								<a class="item__link" href="#">
+									About Us
+								</a>
 							</li>
-							<li class="menu__list--item">
-								<a href="#">Contact</a>
+							<li class="blockmenu__links--item">
+								<a class="item__link" href="#">
+									About Our Shop
+								</a>
 							</li>
-							<li class="menu__list--item">
-								<a href="#">Stores</a>
+							<li class="blockmenu__links--item">
+								<a class="item__link" href="#">
+									Delivery information
+								</a>
+							</li>
+							<li class="blockmenu__links--item">
+								<a class="item__link" href="#">
+									Privacy Policy
+								</a>
+							</li>
+							<li class="blockmenu__links--item">
+								<a class="item__link" href="#">
+									Our Sitemap
+								</a>
 							</li>
 						</ul>
-					</nav>
+						<button hidden data-showmore-button type="button" class="block__more">
+							<span>
+								<i class="fa-solid fa-chevron-down"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-chevron-up"></i>
+							</span>
+						</button>
+					</div>
+					<div data-showmore data-showmore-media="768,max" class="showmore-menu">
+						<nav data-showmore-content="25" class="footer__blockmenu--menu">
+							<ul class="blockmenu__menu--list">
+								<li class="menu__list--item">
+									<a class="item__link" href="#">Home</a>
+								</li>
+								<li class="menu__list--item">
+									<a class="item__link" href="#">Product</a>
+								</li>
+								<li class="menu__list--item">
+									<a class="item__link" href="#">Contact</a>
+								</li>
+								<li class="menu__list--item">
+									<a class="item__link" href="#">Stores</a>
+								</li>
+							</ul>
+						</nav>
+						<button hidden data-showmore-button type="button" class="block__more">
+							<span>
+								<i class="fa-solid fa-chevron-down"></i>
+							</span>
+							<span>
+								<i class="fa-solid fa-chevron-up"></i>
+							</span>
+						</button>
+					</div>
 				</div>
 				<div class="footer__apps">
 					<div class="apps__methods">
 						<h3 class="apps__methods--title">Download App</h3>
 						<div class="apps__methods--icons">
-							<picture><source srcset="img/footer/footer-ios.webp" type="image/webp"><img src="img/footer/footer-ios.png" alt="Ios market"></picture>
-							<picture><source srcset="img/footer/footer-playmarket.webp" type="image/webp"><img src="img/footer/footer-playmarket.png" alt="Google playmarket"></picture>
+							<picture><source srcset="img/footer/footer-ios.webp" type="image/webp"><img class="img-markets" src="img/footer/footer-ios.png" alt="Ios market"></picture>
+							<picture><source srcset="img/footer/footer-playmarket.webp" type="image/webp"><img class="img-markets" src="img/footer/footer-playmarket.png" alt="Google playmarket"></picture>
 						</div>
 					</div>
 					<form class="apps__input">
-						<label for="email">Sign Up for Our Newsletter</label>
+						<div class="label">
+							<label for="email">Sign Up for Our Newsletter</label>
+						</div>
 						<input id="email" name="email" type="email" placeholder="Enter email address" required>
-						<button type="submit">Subscribe</button>
+						<button class="button" type="submit">Subscribe</button>
 					</form>
 					<div class="apps__paymethods">
 						<h3 class="apps__paymethods--title">Payment Method</h3>
@@ -928,10 +952,13 @@
 						</ul>
 					</div>
 				</div>
+				<div class="bottom__footer">
+					<p>Copyright ©2021 All rights reserved | This template is made with 💚 by LOGO</p>
+				</div>
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230113145534"></script>
+	<script src="js/app.min.js?_v=20230114195123"></script>
 </body>
 
 </html>
