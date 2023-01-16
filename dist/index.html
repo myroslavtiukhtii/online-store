@@ -6,18 +6,18 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230116105241">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230116193817">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230116105241" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230116105241" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230116193817" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230116193817" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-	<div class="wrapper">
+	<div id="app" class="wrapper">
 		<header class="header">
 			<div class="block header__top">
 				<div class="block__content header__top--content">
@@ -312,14 +312,14 @@
 					<h3 class="products__title">Top Featured Products</h3>
 					<div class="swiper__topproducts">
 						<ul class="products__list swiper-wrapper">
-							<li class="products__list--item swiper-slide">
+							<li v-for="item in topProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="img/topproducts/top-apricot.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-apricot.png" alt="Fresh organic apricot"></picture>
+									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
 									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Fresh organic apricot</h3>
+									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
+										<span class="item__main--newprice"> {{ item.newPrice }} </span>
+										<span class="item__main--oldprice"> {{ item.oldPrice }} </span>
 									</div>
 								</div>
 								<div class="list__item--discount">
@@ -329,127 +329,11 @@
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
-									<button class="quantity__minus">
+									<button @click="decrementQuantity(item)" class="quantity__minus">
 										<i class="fa-solid fa-minus"></i>
 									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/topproducts/top-cucumber.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-cucumber.png" alt="Cucumber"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Cucumber</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/topproducts/top-nut.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/top-nut.png" alt="Hazelnuts filbert nut"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Hazelnuts filbert nut</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/topproducts/broccoli-top.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/broccoli-top.png" alt="Raw broccoli"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Raw broccoli</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/topproducts/quince-top.webp" type="image/webp"><img class="item__main--img" src="img/topproducts/quince-top.png" alt="Organic quince"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Organic quince</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
+									<span class="quantity__items"> {{ item.quantity }} </span>
+									<button @click="incrementQuantity(item)" class="quantity__plus">
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
@@ -509,14 +393,14 @@
 					<h3 class="products__title">Top Vegetables & Fruits Products</h3>
 					<div class="swiper__topproducts">
 						<ul class="products__list swiper-wrapper">
-							<li class="products__list--item swiper-slide">
+							<li v-for="item in topVegFruitProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="img/vegetables-fruits/vegetabfruits-img-redapple.webp" type="image/webp"><img class="item__main--img" src="img/vegetables-fruits/vegetabfruits-img-redapple.png" alt="Red apple"></picture>
+									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
 									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Red apple</h3>
+									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
+										<span class="item__main--newprice"> {{ item.newPrice }} </span>
+										<span class="item__main--oldprice"> {{ item.oldPrice }} </span>
 									</div>
 								</div>
 								<div class="list__item--discount">
@@ -526,127 +410,11 @@
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
-									<button class="quantity__minus">
+									<button @click="decrementQuantity(item)" class="quantity__minus">
 										<i class="fa-solid fa-minus"></i>
 									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/vegetables-fruits/vegetabfruits-img-capsicumgreen.webp" type="image/webp"><img class="item__main--img" src="img/vegetables-fruits/vegetabfruits-img-capsicumgreen.png" alt="Capsicum green"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Capsicum green</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/vegetables-fruits/vegetabfruits-img-pearl.webp" type="image/webp"><img class="item__main--img" src="img/vegetables-fruits/vegetabfruits-img-pearl.png" alt="Pear fruit"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Pear fruit</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/vegetables-fruits/vegetabfruits-img-blueberry.webp" type="image/webp"><img class="item__main--img" src="img/vegetables-fruits/vegetabfruits-img-blueberry.png" alt="Blueberry"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Blueberr</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/vegetables-fruits/vegetabfruits-img-rasperberry.webp" type="image/webp"><img class="item__main--img" src="img/vegetables-fruits/vegetabfruits-img-rasperberry.png" alt="Fresh raspberry"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Fresh raspberry</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
+									<span class="quantity__items"> {{ item.quantity }} </span>
+									<button @click="incrementQuantity(item)" class="quantity__plus">
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
@@ -658,20 +426,20 @@
 					</div>
 				</div>
 			</section>
-			<section class="products vegetables-and-fruits">
+			<section class="products new-products">
 				<div class="products__container">
 					<h2 class="products__subtitle">For You</h2>
 					<h3 class="products__title">Added new Products</h3>
 					<div class="swiper__topproducts">
 						<ul class="products__list swiper-wrapper">
-							<li class="products__list--item swiper-slide">
+							<li v-for="item in newProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="img/newproducts/products-ginger.webp" type="image/webp"><img class="item__main--img" src="img/newproducts/products-ginger.png" alt="Ginger"></picture>
+									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
 									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Red apple</h3>
+									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
+										<span class="item__main--newprice"> {{ item.newPrice }} </span>
+										<span class="item__main--oldprice"> {{ item.oldPrice }} </span>
 									</div>
 								</div>
 								<div class="list__item--discount">
@@ -681,127 +449,11 @@
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
-									<button class="quantity__minus">
+									<button @click="decrementQuantity(item)" class="quantity__minus">
 										<i class="fa-solid fa-minus"></i>
 									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/newproducts/products-figs.webp" type="image/webp"><img class="item__main--img" src="img/newproducts/products-figs.png" alt="Two fresh figs"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Two fresh figs</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/newproducts/products-strawberry.webp" type="image/webp"><img class="item__main--img" src="img/newproducts/products-strawberry.png" alt="Strawberry"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Strawberry</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/newproducts/products-eggplant.webp" type="image/webp"><img class="item__main--img" src="img/newproducts/products-eggplant.png" alt="Eggplant"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Eggplant</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
-										<i class="fa-solid fa-plus"></i>
-									</button>
-								</div>
-								<div class="list__item--basket">
-									<i class="fa-solid fa-cart-shopping"></i>
-								</div>
-							</li>
-							<li class="products__list--item swiper-slide">
-								<div class="item__main">
-									<picture><source srcset="img/newproducts/products-egg.webp" type="image/webp"><img class="item__main--img" src="img/newproducts/products-egg.png" alt="Egg"></picture>
-									<span class="item__main--instock">Available(in stock)</span>
-									<h3 class="item__main--title">Egg</h3>
-									<div class="item__main--price">
-										<span class="item__main--newprice">$12</span>
-										<span class="item__main--oldprice">$15</span>
-									</div>
-								</div>
-								<div class="list__item--discount">
-									<span class="discount__price">15%Off</span>
-								</div>
-								<div class="list__item--like">
-									<i class="fa-regular fa-heart"></i>
-								</div>
-								<div class="list__item--quantity">
-									<button class="quantity__minus">
-										<i class="fa-solid fa-minus"></i>
-									</button>
-									<span class="quantity__items">4</span>
-									<button class="quantity__plus">
+									<span class="quantity__items"> {{ item.quantity }} </span>
+									<button @click="incrementQuantity(item)" class="quantity__plus">
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
@@ -954,7 +606,169 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230116105241"></script>
+	<script src="js/app.min.js?_v=20230116193817"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230116193817"></script>
+	<script>
+		const {
+			createApp
+		} = Vue;
+
+		const topProducts = [{
+				title: "Fresh organic apricot",
+				type: "fruit",
+				newPrice: "$12",
+				oldPrice: "$15",
+				srcImg: "img/topproducts/top-apricot.png",
+				quantity: "0"
+			},
+			{
+				title: "Cucumber",
+				type: "vegetables",
+				newPrice: "$8",
+				oldPrice: "$10",
+				srcImg: "img/topproducts/top-cucumber.png",
+				quantity: "0"
+			},
+			{
+				title: "Hazelnuts filbert nut",
+				type: "snacks",
+				newPrice: "$25",
+				oldPrice: "$30",
+				srcImg: "img/topproducts/top-nut.png",
+				quantity: "0"
+			},
+			{
+				title: "Raw broccoli",
+				type: "vegetables",
+				newPrice: "$17",
+				oldPrice: "$22",
+				srcImg: "img/topproducts/broccoli-top.png",
+				quantity: "0"
+			},
+			{
+				title: "Organic quince",
+				type: "fruit",
+				newPrice: "$27",
+				oldPrice: "$32",
+				srcImg: "img/topproducts/quince-top.png",
+				quantity: "0"
+			}
+		];
+
+		const topVegFruitProducts = [{
+				title: "Red apple",
+				type: "fruit",
+				newPrice: "$12",
+				oldPrice: "$15",
+				srcImg: "img/vegetables-fruits/vegetabfruits-img-redapple.png",
+				quantity: "0"
+			},
+			{
+				title: "Capsicum green",
+				type: "vegetables",
+				newPrice: "$8",
+				oldPrice: "$10",
+				srcImg: "img/vegetables-fruits/vegetabfruits-img-capsicumgreen.png",
+				quantity: "0"
+			},
+			{
+				title: "Pear fruit",
+				type: "fruit",
+				newPrice: "$25",
+				oldPrice: "$30",
+				srcImg: "img/vegetables-fruits/vegetabfruits-img-pearl.png",
+				quantity: "0"
+			},
+			{
+				title: "Blueberr",
+				type: "fruit",
+				newPrice: "$17",
+				oldPrice: "$22",
+				srcImg: "img/vegetables-fruits/vegetabfruits-img-blueberry.png",
+				quantity: "0"
+			},
+			{
+				title: "Fresh raspberry",
+				type: "fruit",
+				newPrice: "$27",
+				oldPrice: "$32",
+				srcImg: "img/vegetables-fruits/vegetabfruits-img-rasperberry.png",
+				quantity: "0"
+			}
+		];
+
+		const newProducts = [{
+				title: "Ginger",
+				type: "vegetables",
+				newPrice: "$12",
+				oldPrice: "$15",
+				srcImg: "img/newproducts/products-ginger.png",
+				quantity: "0"
+			},
+			{
+				title: "Two fresh figs",
+				type: "fruit",
+				newPrice: "$8",
+				oldPrice: "$10",
+				srcImg: "img/newproducts/products-figs.png",
+				quantity: "0"
+			},
+			{
+				title: "Strawberry",
+				type: "fruit",
+				newPrice: "$25",
+				oldPrice: "$30",
+				srcImg: "img/newproducts/products-strawberry.png",
+				quantity: "0"
+			},
+			{
+				title: "Eggplant",
+				type: "vegetables",
+				newPrice: "$17",
+				oldPrice: "$22",
+				srcImg: "img/newproducts/products-eggplant.png",
+				quantity: "0"
+			},
+			{
+				title: "Egg",
+				type: "milk",
+				newPrice: "$27",
+				oldPrice: "$32",
+				srcImg: "img/newproducts/products-egg.png",
+				quantity: "0"
+			}
+		];
+
+
+
+
+		createApp({
+
+			data() {
+
+				return {
+					topProducts: topProducts,
+					topVegFruitProducts: topVegFruitProducts,
+					newProducts: newProducts
+				}
+
+			},
+
+			methods: {
+				incrementQuantity(item) {
+					item.quantity++;
+				},
+
+				decrementQuantity(item) {
+					if (item.quantity == 0) {
+						item.quantity = 0;
+					} else {
+						item.quantity--
+					}
+				}
+			}
+		}).mount("#app");
+	</script>
 </body>
 
 </html>

@@ -4525,7 +4525,7 @@
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
-            loop: true,
+            loop: false,
             breakpoints: {
                 320: {
                     slidesPerView: 1.5,
