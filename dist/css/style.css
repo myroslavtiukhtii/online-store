@@ -861,9 +861,12 @@ svg path {
   margin-right: 5px;
 }
 
+.header__container .header__middle .header__middle--left .header__middle--select .select {
+  z-index: 99;
+}
+
 .header__container .header__middle .header__middle--left .header__middle--select .select__body {
   width: 101px;
-  z-index: 99;
 }
 
 .header__container .header__middle .header__middle--left .search__input {
@@ -1072,7 +1075,7 @@ svg path {
 }
 
 .header__container .header__bottom .header__bottom--left .header__bottom--menu {
-  z-index: 99;
+  z-index: 5;
 }
 
 .header__container .header__bottom .header__bottom--left .header__bottom--menu .bottom__menu--list {
@@ -1907,24 +1910,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   margin-bottom: 40px;
 }
 
-.bestvalues__container .showmore .block__more {
-  width: 100%;
-  height: 48px;
-  background-color: #7FAD39;
-  color: #fff;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-
 .bestvalues__container .bestvalues__discount--list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   margin-bottom: 20px;
 }
 
@@ -2253,10 +2239,6 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     padding-bottom: 3.75rem;
   }
 
-  .bestvalues__container .bestvalues__discount--list {
-    gap: 1.25rem;
-  }
-
   .bestvalues__container .bestvalues__discount--list .discount__list--item {
     width: 23.5625rem;
   }
@@ -2313,11 +2295,6 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     height: -moz-max-content;
     height: max-content;
     top: 0;
-  }
-
-  .bestvalues__container .bestvalues__discount--list {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
 }
 
@@ -2492,10 +2469,6 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 
   .products {
     padding-bottom: 1.875rem;
-  }
-
-  .bestvalues__container .bestvalues__discount--list {
-    gap: 0.3125rem;
   }
 
   .bestvalues__container .bestvalues__discount--list .discount__list--item {
@@ -2790,18 +2763,6 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 @supports not (padding-bottom: clamp( 1.875rem , 1.1931818182rem  +  3.4090909091vw , 3.75rem )) {
     .products {
       padding-bottom: calc(1.875rem + 1.875 * (100vw - 20rem) / 55);
-    }
-}
-
-@supports (gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
-    .bestvalues__container .bestvalues__discount--list {
-      gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem );
-    }
-}
-
-@supports not (gap: clamp( 0.3125rem , -0.0284090909rem  +  1.7045454545vw , 1.25rem )) {
-    .bestvalues__container .bestvalues__discount--list {
-      gap: calc(0.3125rem + 0.9375 * (100vw - 20rem) / 55);
     }
 }
 

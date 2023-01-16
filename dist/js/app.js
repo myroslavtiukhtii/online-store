@@ -4455,6 +4455,7 @@
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
+            autoplay: true,
             loop: true,
             effect: "fade",
             autoplay: {
@@ -4494,7 +4495,6 @@
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
-            autoplay: true,
             loop: true,
             breakpoints: {
                 320: {
@@ -4525,7 +4525,6 @@
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
-            autoplay: true,
             loop: true,
             breakpoints: {
                 320: {
@@ -4543,6 +4542,37 @@
                 },
                 1200: {
                     slidesPerView: 5,
+                    spaceBetween: 30
+                }
+            },
+            on: {}
+        });
+        if (document.querySelector(".bestvalues__swiper")) new core(".bestvalues__swiper", {
+            modules: [ Navigation, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 900,
+            autoplay: true,
+            loop: true,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.1,
+                    spaceBetween: 15,
+                    autoHeight: true
+                },
+                500: {
+                    slidesPerView: 2,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 3,
                     spaceBetween: 30
                 }
             },
