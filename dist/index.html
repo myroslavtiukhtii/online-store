@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230116200722">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230117110940">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230116200722" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230116200722" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117110940" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117110940" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -314,7 +314,10 @@
 						<ul class="products__list swiper-wrapper">
 							<li v-for="item in topProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
+									<picture>
+										<source :srcset="item.srcImg" type="image/webp">
+										<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+									</picture>
 									<span class="item__main--instock">Available(in stock)</span>
 									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
@@ -606,8 +609,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230116200722"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230116200722"></script>
+	<script src="js/app.min.js?_v=20230117110940"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230117110940"></script>
 	<script>
 		const {
 			createApp
@@ -618,7 +621,7 @@
 				type: "fruit",
 				newPrice: "$12",
 				oldPrice: "$15",
-				srcImg: "img/top-apricot.png",
+				srcImg: "img/topproducts/top-apricot.png",
 				quantity: "0"
 			},
 			{
@@ -626,7 +629,7 @@
 				type: "vegetables",
 				newPrice: "$8",
 				oldPrice: "$10",
-				srcImg: "img/top-cucumber.png",
+				srcImg: "img/topproducts/top-cucumber.png",
 				quantity: "0"
 			},
 			{
@@ -634,7 +637,7 @@
 				type: "snacks",
 				newPrice: "$25",
 				oldPrice: "$30",
-				srcImg: "img/top-nut.png",
+				srcImg: "img/topproducts/top-nut.png",
 				quantity: "0"
 			},
 			{
@@ -642,7 +645,7 @@
 				type: "vegetables",
 				newPrice: "$17",
 				oldPrice: "$22",
-				srcImg: "img/broccoli-top.png",
+				srcImg: "img/topproducts/broccoli-top.png",
 				quantity: "0"
 			},
 			{
@@ -650,7 +653,7 @@
 				type: "fruit",
 				newPrice: "$27",
 				oldPrice: "$32",
-				srcImg: "img/quince-top.png",
+				srcImg: "img/topproducts/quince-top.png",
 				quantity: "0"
 			}
 		];
