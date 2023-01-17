@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230117150431">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230117202349">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117150431" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117150431" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117202349" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117202349" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -161,7 +161,7 @@
 							<div class="openbasket"></div>
 							<i class="fa-solid fa-cart-shopping"></i>
 							CART
-							<span class="cart__item">2</span>
+							<span class="cart__item"> {{ totalQuantityCartItems }} </span>
 							<i class="fa-solid fa-caret-down"></i>
 						</div>
 					</div>
@@ -180,11 +180,11 @@
 							</picture>
 							<div class="list__item--calculate">
 								<button @click="decrementQuantity(item)" class="calculate__minus mobilesize--item">
-									<i class="fa-regular fa-square-minus"></i>
+									<i class="fa-solid fa-minus"></i>
 								</button>
 								<span class="calculate__quantity mobilesize--item"> {{ item.quantity }} </span>
 								<button @click="incrementQuantity(item)" class="calculate__plus mobilesize--item">
-									<i class="fa-regular fa-square-plus"></i>
+									<i class="fa-solid fa-plus"></i>
 								</button>
 								<span class="calculate__equals mobilesize--item">
 									<i class="fa-solid fa-equals"></i>
@@ -198,7 +198,7 @@
 					</ul>
 					<p class="header__cart--price">
 						Total price:
-						<span> {{totalCartPrice}} </span>
+						<span> {{ totalCartPrice }} </span>
 					</p>
 					<button class="header__cart--order">
 						Order
@@ -618,8 +618,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230117150431"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230117150431"></script>
+	<script src="js/app.min.js?_v=20230117202349"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230117202349"></script>
 	<script>
 		const {
 			createApp
@@ -631,8 +631,8 @@
 				newPrice: "$12",
 				oldPrice: "$15",
 				srcImg: "img/topproducts/top-apricot.png",
-				quantity: "0",
-				cartPrice: "0",
+				quantity: 0,
+				cartPrice: 0,
 			},
 			{
 				title: "Cucumber",
@@ -640,8 +640,8 @@
 				newPrice: "$8",
 				oldPrice: "$10",
 				srcImg: "img/topproducts/top-cucumber.png",
-				quantity: "0",
-				cartPrice: "0",
+				quantity: 0,
+				cartPrice: 0,
 			},
 			{
 				title: "Hazelnuts filbert nut",
@@ -649,8 +649,8 @@
 				newPrice: "$25",
 				oldPrice: "$30",
 				srcImg: "img/topproducts/top-nut.png",
-				quantity: "0",
-				cartPrice: "0",
+				quantity: 0,
+				cartPrice: 0,
 			},
 			{
 				title: "Raw broccoli",
@@ -658,8 +658,8 @@
 				newPrice: "$17",
 				oldPrice: "$22",
 				srcImg: "img/topproducts/broccoli-top.png",
-				quantity: "0",
-				cartPrice: "0",
+				quantity: 0,
+				cartPrice: 0,
 			},
 			{
 				title: "Organic quince",
@@ -667,8 +667,8 @@
 				newPrice: "$27",
 				oldPrice: "$32",
 				srcImg: "img/topproducts/quince-top.png",
-				quantity: "0",
-				cartPrice: "0",
+				quantity: 0,
+				cartPrice: 0,
 			}
 		];
 
@@ -758,7 +758,6 @@
 
 
 
-
 		createApp({
 
 			data() {
@@ -768,9 +767,26 @@
 					topVegFruitProducts: topVegFruitProducts,
 					newProducts: newProducts,
 					cartItems: [],
-					totalCartPrice: 0,
 				}
 
+			},
+
+			computed: {
+				totalCartPrice() {
+					let total = 0;
+					for (let i = 0; i < this.cartItems.length; i++) {
+						total += this.cartItems[i].cartPrice;
+					}
+					return `${total}$`;
+				},
+
+				totalQuantityCartItems() {
+					let totalItems = 0;
+					for (let i = 0; i < this.cartItems.length; i++) {
+						totalItems = this.cartItems.length;
+					}
+					return totalItems;
+				}
 			},
 
 
@@ -778,6 +794,7 @@
 
 				incrementQuantity(item) {
 					item.quantity++;
+					item.cartPrice = item.quantity * parseFloat(item.newPrice.replace(/[$]/g, ''));
 				},
 
 				decrementQuantity(item) {
@@ -785,21 +802,19 @@
 						item.quantity = 0;
 					} else {
 						item.quantity--;
+						item.cartPrice = item.quantity * parseFloat(item.newPrice.replace(/[$]/g, ''));
 					}
 				},
 
 				addItemToBasket(item) {
 					const foundItem = this.cartItems.find(element => element.title == item.title);
-
 					if (foundItem === undefined && item.quantity > 0) {
 						//add new item
 						item.cartPrice = item.quantity * parseFloat(item.newPrice.replace(/[$]/g, ''));
 						this.cartItems.push(item);
-					} else {
+					} else if (item.quantity > 0) {
 						//update exist item
-
-						this.cartItems.forEach(element => console.log(element.quantity));
-						console.log(this.cartItems);
+						alert("The product is already in the basket")
 					}
 				},
 
