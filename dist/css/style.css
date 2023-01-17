@@ -2212,7 +2212,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   }
 
   .header__container .header__cart .header__cart--list .cart__list--item .list__item--img {
-    width: 12.5rem;
+    width: 9.375rem;
   }
 
   .header__container .header__cart .header__cart--list .cart__list--item .list__item--calculate .mobilesize--item {
@@ -2444,7 +2444,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   }
 
   .header__container .header__cart .header__cart--list .cart__list--item .list__item--img {
-    width: 6.25rem;
+    width: 4.375rem;
   }
 
   .header__container .header__cart .header__cart--list .cart__list--item .list__item--calculate .mobilesize--item {
@@ -2682,15 +2682,15 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     }
 }
 
-@supports (width: clamp( 6.25rem , 3.9772727273rem  +  11.3636363636vw , 12.5rem )) {
+@supports (width: clamp( 4.375rem , 2.5568181818rem  +  9.0909090909vw , 9.375rem )) {
     .header__container .header__cart .header__cart--list .cart__list--item .list__item--img {
-      width: clamp( 6.25rem , 3.9772727273rem  +  11.3636363636vw , 12.5rem );
+      width: clamp( 4.375rem , 2.5568181818rem  +  9.0909090909vw , 9.375rem );
     }
 }
 
-@supports not (width: clamp( 6.25rem , 3.9772727273rem  +  11.3636363636vw , 12.5rem )) {
+@supports not (width: clamp( 4.375rem , 2.5568181818rem  +  9.0909090909vw , 9.375rem )) {
     .header__container .header__cart .header__cart--list .cart__list--item .list__item--img {
-      width: calc(6.25rem + 6.25 * (100vw - 20rem) / 55);
+      width: calc(4.375rem + 5 * (100vw - 20rem) / 55);
     }
 }
 

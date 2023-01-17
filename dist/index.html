@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230117110940">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230117150431">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117110940" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117110940" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117150431" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117150431" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -172,22 +172,25 @@
 					</button>
 					<h3 class="header__cart--title">Basket</h3>
 					<ul class="header__cart--list">
-						<li class="cart__list--item">
-							<h3 class="list__item--name">Cucumber</h3>
-							<picture><source srcset="img/products-cucumber.webp" type="image/webp"><img class="list__item--img" src="img/products-cucumber.png" alt="Cucumber"></picture>
+						<li v-for="item in cartItems" class="cart__list--item">
+							<h3 class="list__item--name"> {{ item.title }} </h3>
+							<picture>
+								<source :srcset="item.srcImg" type="image/webp">
+								<img class="list__item--img" :src="item.srcImg" :alt="item.title">
+							</picture>
 							<div class="list__item--calculate">
-								<button class="calculate__minus mobilesize--item">
+								<button @click="decrementQuantity(item)" class="calculate__minus mobilesize--item">
 									<i class="fa-regular fa-square-minus"></i>
 								</button>
-								<span class="calculate__quantity mobilesize--item">5</span>
-								<button class="calculate__plus mobilesize--item">
+								<span class="calculate__quantity mobilesize--item"> {{ item.quantity }} </span>
+								<button @click="incrementQuantity(item)" class="calculate__plus mobilesize--item">
 									<i class="fa-regular fa-square-plus"></i>
 								</button>
 								<span class="calculate__equals mobilesize--item">
 									<i class="fa-solid fa-equals"></i>
 								</span>
-								<p class="list__item--price mobilesize--item">2500</p>
-								<div class="list__item--delete mobilesize--item">
+								<p class="list__item--price mobilesize--item"> {{item.cartPrice}} </p>
+								<div @click="removeFromBasket(item)" class="list__item--delete mobilesize--item">
 									<i class="fa-solid fa-trash-can"></i>
 								</div>
 							</div>
@@ -195,7 +198,7 @@
 					</ul>
 					<p class="header__cart--price">
 						Total price:
-						<span>2500</span>
+						<span> {{totalCartPrice}} </span>
 					</p>
 					<button class="header__cart--order">
 						Order
@@ -306,7 +309,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="products">
+			<section class="products top-products">
 				<div class="products__container">
 					<h2 class="products__subtitle">For You</h2>
 					<h3 class="products__title">Top Featured Products</h3>
@@ -340,7 +343,7 @@
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
-								<div class="list__item--basket">
+								<div @click="addItemToBasket(item)" class="list__item--basket">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</div>
 							</li>
@@ -398,7 +401,10 @@
 						<ul class="products__list swiper-wrapper">
 							<li v-for="item in topVegFruitProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
+									<picture>
+										<source :srcset="item.srcImg" type="image/webp">
+										<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+									</picture>
 									<span class="item__main--instock">Available(in stock)</span>
 									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
@@ -437,7 +443,10 @@
 						<ul class="products__list swiper-wrapper">
 							<li v-for="item in newProducts" class="products__list--item swiper-slide">
 								<div class="item__main">
-									<picture><source srcset="item.srcImg" type="image/webp"><img class="item__main--img" :src="item.srcImg" :alt="item.title"></picture>
+									<picture>
+										<source :srcset="item.srcImg" type="image/webp">
+										<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+									</picture>
 									<span class="item__main--instock">Available(in stock)</span>
 									<h3 class="item__main--title"> {{ item.title }} </h3>
 									<div class="item__main--price">
@@ -609,8 +618,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230117110940"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230117110940"></script>
+	<script src="js/app.min.js?_v=20230117150431"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230117150431"></script>
 	<script>
 		const {
 			createApp
@@ -622,7 +631,8 @@
 				newPrice: "$12",
 				oldPrice: "$15",
 				srcImg: "img/topproducts/top-apricot.png",
-				quantity: "0"
+				quantity: "0",
+				cartPrice: "0",
 			},
 			{
 				title: "Cucumber",
@@ -630,7 +640,8 @@
 				newPrice: "$8",
 				oldPrice: "$10",
 				srcImg: "img/topproducts/top-cucumber.png",
-				quantity: "0"
+				quantity: "0",
+				cartPrice: "0",
 			},
 			{
 				title: "Hazelnuts filbert nut",
@@ -638,7 +649,8 @@
 				newPrice: "$25",
 				oldPrice: "$30",
 				srcImg: "img/topproducts/top-nut.png",
-				quantity: "0"
+				quantity: "0",
+				cartPrice: "0",
 			},
 			{
 				title: "Raw broccoli",
@@ -646,7 +658,8 @@
 				newPrice: "$17",
 				oldPrice: "$22",
 				srcImg: "img/topproducts/broccoli-top.png",
-				quantity: "0"
+				quantity: "0",
+				cartPrice: "0",
 			},
 			{
 				title: "Organic quince",
@@ -654,7 +667,8 @@
 				newPrice: "$27",
 				oldPrice: "$32",
 				srcImg: "img/topproducts/quince-top.png",
-				quantity: "0"
+				quantity: "0",
+				cartPrice: "0",
 			}
 		];
 
@@ -752,12 +766,16 @@
 				return {
 					topProducts: topProducts,
 					topVegFruitProducts: topVegFruitProducts,
-					newProducts: newProducts
+					newProducts: newProducts,
+					cartItems: [],
+					totalCartPrice: 0,
 				}
 
 			},
 
+
 			methods: {
+
 				incrementQuantity(item) {
 					item.quantity++;
 				},
@@ -766,8 +784,27 @@
 					if (item.quantity == 0) {
 						item.quantity = 0;
 					} else {
-						item.quantity--
+						item.quantity--;
 					}
+				},
+
+				addItemToBasket(item) {
+					const foundItem = this.cartItems.find(element => element.title == item.title);
+
+					if (foundItem === undefined && item.quantity > 0) {
+						//add new item
+						item.cartPrice = item.quantity * parseFloat(item.newPrice.replace(/[$]/g, ''));
+						this.cartItems.push(item);
+					} else {
+						//update exist item
+
+						this.cartItems.forEach(element => console.log(element.quantity));
+						console.log(this.cartItems);
+					}
+				},
+
+				removeFromBasket(item) {
+					this.cartItems.splice(this.cartItems.indexOf(item), 1);
 				}
 			}
 		}).mount("#app");
