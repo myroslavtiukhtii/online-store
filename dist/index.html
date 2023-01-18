@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230117202349">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230118131017">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230117202349" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230117202349" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230118131017" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230118131017" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -331,7 +331,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div class="list__item--like">
+								<div @click="likedItem()" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -343,7 +343,7 @@
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
-								<div @click="addItemToBasket(item)" class="list__item--basket">
+								<div @click="addItemToBasket(item, $event)" class="list__item--basket">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</div>
 							</li>
@@ -415,7 +415,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div class="list__item--like">
+								<div @click="likedItem()" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -427,7 +427,7 @@
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
-								<div class="list__item--basket">
+								<div @click="addItemToBasket(item, $event)" class="list__item--basket">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</div>
 							</li>
@@ -457,7 +457,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div class="list__item--like">
+								<div @click="likedItem()" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -469,7 +469,7 @@
 										<i class="fa-solid fa-plus"></i>
 									</button>
 								</div>
-								<div class="list__item--basket">
+								<div @click="addItemToBasket(item, $event)" class="list__item--basket">
 									<i class="fa-solid fa-cart-shopping"></i>
 								</div>
 							</li>
@@ -618,8 +618,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230117202349"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230117202349"></script>
+	<script src="js/app.min.js?_v=20230118131017"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230118131017"></script>
 	<script>
 		const {
 			createApp
@@ -806,12 +806,15 @@
 					}
 				},
 
-				addItemToBasket(item) {
+				addItemToBasket(item, event) {
 					const foundItem = this.cartItems.find(element => element.title == item.title);
 					if (foundItem === undefined && item.quantity > 0) {
 						//add new item
 						item.cartPrice = item.quantity * parseFloat(item.newPrice.replace(/[$]/g, ''));
 						this.cartItems.push(item);
+
+						event.target.classList.toggle('active');
+
 					} else if (item.quantity > 0) {
 						//update exist item
 						alert("The product is already in the basket")
@@ -820,6 +823,10 @@
 
 				removeFromBasket(item) {
 					this.cartItems.splice(this.cartItems.indexOf(item), 1);
+				},
+
+				likedItem() {
+					event.currentTarget.classList.toggle('active');
 				}
 			}
 		}).mount("#app");

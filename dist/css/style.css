@@ -696,6 +696,11 @@ svg path {
   cursor: pointer;
 }
 
+.products__list .products__list--item .list__item--like.active {
+  background: #00b109;
+  color: #F7F7F7;
+}
+
 .products__list .products__list--item .list__item--quantity {
   position: absolute;
   bottom: 20px;
@@ -732,12 +737,22 @@ svg path {
   position: absolute;
   bottom: 20px;
   right: 20px;
-  color: #A9A9A9;
   font-size: 20px;
   -webkit-transition: 0.3s ease-in;
   -o-transition: 0.3s ease-in;
   transition: 0.3s ease-in;
   cursor: pointer;
+}
+
+.products__list .products__list--item .list__item--basket .fa-solid {
+  color: #A9A9A9;
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.products__list .products__list--item .fa-solid.active {
+  color: #00b109;
 }
 
 .header {
@@ -3109,11 +3124,11 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   }
 
   .products__list .products__list--item .list__item--like:hover {
-    background-color: rgb(0, 177, 9);
+    background-color: #00b109;
     color: #F7F7F7;
   }
 
-  .products__list .products__list--item .list__item--basket:hover {
+  .products__list .products__list--item .list__item--basket:hover .fa-solid {
     color: rgb(0, 177, 9);
     -webkit-animation-name: updown;
             animation-name: updown;
