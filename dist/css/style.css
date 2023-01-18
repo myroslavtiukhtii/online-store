@@ -820,6 +820,72 @@ svg path {
   font-size: 20px;
 }
 
+.header .header__poplikes {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background-color: #fff;
+  z-index: 99;
+  top: 20%;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
+  -webkit-transition: 0.3s ease-in;
+  -o-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+  overflow: auto;
+  padding: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  left: -100%;
+  opacity: 0;
+}
+
+.header .header__poplikes .poplikes__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+.header .header__poplikes .poplikes__list .poplikes__list--item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-bottom: 1px solid #2A2A2A;
+  width: 100%;
+}
+
+.header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
+  width: 120px;
+}
+
+.header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
+  font-size: 20px;
+}
+
+.header .header__poplikes.active {
+  left: 50%;
+  opacity: 1;
+}
+
 .header__container {
   position: relative;
 }
@@ -1282,6 +1348,8 @@ svg path {
   transition: 0.3s ease-in;
   padding: 25px;
   z-index: 99;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+          box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
 
 .header__container .header__cart .closecartbtn {

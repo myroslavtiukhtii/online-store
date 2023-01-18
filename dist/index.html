@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230118131017">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230118151053">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230118131017" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230118131017" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230118151053" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230118151053" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -39,6 +39,17 @@
 						<i class="fa-brands fa-square-twitter"></i>
 					</a>
 				</div>
+			</div>
+			<div class="header__poplikes">
+				<ul class="poplikes__list">
+					<li v-for="item in cartLikes" class="poplikes__list--item">
+						<h3 class="item__main--title"> {{ item.title }} </h3>
+						<picture>
+							<source :srcset="item.srcImg" type="image/webp">
+							<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+						</picture>
+					</li>
+				</ul>
 			</div>
 			<div class="header__container">
 				<div class="header__middle">
@@ -76,7 +87,7 @@
 							</ul>
 						</div>
 						<a href="#" class="header__rigth--heart">
-							<i class="fa-regular fa-heart"></i>
+							<i class="fa-regular fa-heart openCartLikesModal"></i>
 						</a>
 						<a href="#" class="header__rigth--user">
 							<i class="fa-regular fa-user"></i>
@@ -331,7 +342,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div @click="likedItem()" class="list__item--like">
+								<div @click="likedItem(item)" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -457,7 +468,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div @click="likedItem()" class="list__item--like">
+								<div class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -618,8 +629,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230118131017"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230118131017"></script>
+	<script src="js/app.min.js?_v=20230118151053"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230118151053"></script>
 	<script>
 		const {
 			createApp
@@ -767,6 +778,8 @@
 					topVegFruitProducts: topVegFruitProducts,
 					newProducts: newProducts,
 					cartItems: [],
+					cartLikes: [],
+					showText: "Empty",
 				}
 
 			},
@@ -825,9 +838,17 @@
 					this.cartItems.splice(this.cartItems.indexOf(item), 1);
 				},
 
-				likedItem() {
-					event.currentTarget.classList.toggle('active');
-				}
+				likedItem(item) {
+					const foundItem = this.cartLikes.find(element => element.title == item.title);
+					if (foundItem == undefined) {
+						this.cartLikes.push(item);
+						event.currentTarget.classList.toggle('active');
+					} else {
+						this.cartLikes.splice(this.cartLikes.indexOf(item), 1);
+						event.currentTarget.classList.toggle('active');
+					}
+
+				},
 			}
 		}).mount("#app");
 	</script>
