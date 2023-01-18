@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230118151053">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230118202738">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230118151053" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230118151053" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230118202738" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230118202738" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -41,6 +41,10 @@
 				</div>
 			</div>
 			<div class="header__poplikes">
+				<h2>
+					Items
+					<span>{{totalLikesCountItems}}</span>
+				</h2>
 				<ul class="poplikes__list">
 					<li v-for="item in cartLikes" class="poplikes__list--item">
 						<h3 class="item__main--title"> {{ item.title }} </h3>
@@ -68,7 +72,14 @@
 							</select>
 						</div>
 						<div class="search-form">
-							<input class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
+							<div class="input-block">
+								<input v-model="search" class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
+								<ul v-show="search.length > 0" class="search-form--list">
+									<li v-for="item in filteredAndSorted">
+										{{item.title}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
 					<div data-da=".categories__menu--list,1200" class="header__middle--right">
@@ -87,6 +98,9 @@
 							</ul>
 						</div>
 						<a href="#" class="header__rigth--heart">
+							<h3 v-show="totalLikesCountItems > 0" class="header__likes--count">
+								{{ totalLikesCountItems }}
+							</h3>
 							<i class="fa-regular fa-heart openCartLikesModal"></i>
 						</a>
 						<a href="#" class="header__rigth--user">
@@ -426,7 +440,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div @click="likedItem()" class="list__item--like">
+								<div @click="likedItem(item)" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -468,7 +482,7 @@
 								<div class="list__item--discount">
 									<span class="discount__price">15%Off</span>
 								</div>
-								<div class="list__item--like">
+								<div @click="likedItem(item)" class="list__item--like">
 									<i class="fa-regular fa-heart"></i>
 								</div>
 								<div class="list__item--quantity">
@@ -629,8 +643,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230118151053"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230118151053"></script>
+	<script src="js/app.min.js?_v=20230118202738"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230118202738"></script>
 	<script>
 		const {
 			createApp
@@ -779,7 +793,7 @@
 					newProducts: newProducts,
 					cartItems: [],
 					cartLikes: [],
-					showText: "Empty",
+					search: '',
 				}
 
 			},
@@ -799,9 +813,29 @@
 						totalItems = this.cartItems.length;
 					}
 					return totalItems;
+				},
+
+				totalLikesCountItems() {
+					let totaLikeslItems = 0;
+					for (let i = 0; i < this.cartLikes.length; i++) {
+						totaLikeslItems = this.cartLikes.length;
+					}
+					return totaLikeslItems;
+				},
+
+				filteredAndSorted(item) {
+					// function to compare names
+					function compare(a, b) {
+						if (a.title < b.title) return -1;
+						if (a.title > b.title) return 1;
+						return 0;
+					}
+
+					return this.topProducts.filter(item => {
+						return item.title.toLowerCase().includes(this.search.toLowerCase())
+					}).sort(compare)
 				}
 			},
-
 
 			methods: {
 
@@ -847,7 +881,6 @@
 						this.cartLikes.splice(this.cartLikes.indexOf(item), 1);
 						event.currentTarget.classList.toggle('active');
 					}
-
 				},
 			}
 		}).mount("#app");

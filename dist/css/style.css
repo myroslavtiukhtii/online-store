@@ -822,7 +822,6 @@ svg path {
 
 .header .header__poplikes {
   position: absolute;
-  width: 350px;
   height: 350px;
   background-color: #fff;
   z-index: 99;
@@ -875,10 +874,6 @@ svg path {
 
 .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
   width: 120px;
-}
-
-.header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
-  font-size: 20px;
 }
 
 .header .header__poplikes.active {
@@ -950,7 +945,32 @@ svg path {
   width: 101px;
 }
 
-.header__container .header__middle .header__middle--left .search__input {
+.header__container .header__middle .header__middle--left .search-form {
+  position: relative;
+}
+
+.header__container .header__middle .header__middle--left .search-form .input-block .search-form--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: 15px;
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  font-size: 15px;
+  background-color: #f7f7f7;
+  z-index: 99;
+  width: 100%;
+}
+
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input {
   background: #f7f7f7;
   border-radius: 3px;
   min-height: 36px;
@@ -958,49 +978,39 @@ svg path {
   padding: 12px 130px 7px 10px;
 }
 
-.header__container .header__middle .header__middle--left .search__input::-webkit-input-placeholder {
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #999999;
 }
 
-.header__container .header__middle .header__middle--left .search__input::-moz-placeholder {
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input::-moz-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #999999;
 }
 
-.header__container .header__middle .header__middle--left .search__input:-ms-input-placeholder {
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input:-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #999999;
 }
 
-.header__container .header__middle .header__middle--left .search__input::-ms-input-placeholder {
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input::-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #999999;
 }
 
-.header__container .header__middle .header__middle--left .search__input::placeholder {
+.header__container .header__middle .header__middle--left .search-form .input-block .search__input::placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #999999;
-}
-
-.header__container .header__middle .header__middle--left .search__input.active {
-  width: 80%;
-  top: 150%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  z-index: 5;
 }
 
 .header__container .header__middle .header__middle--right {
@@ -1032,9 +1042,18 @@ svg path {
 }
 
 .header__container .header__middle .header__middle--right .header__rigth--heart {
+  position: relative;
   border-right: 2px solid rgba(42, 42, 42, 0.2);
   padding-right: 34px;
   margin-right: 24px;
+}
+
+.header__container .header__middle .header__middle--right .header__rigth--heart .header__likes--count {
+  position: absolute;
+  top: -6px;
+  left: 17px;
+  color: #7FAD39;
+  font-weight: 500;
 }
 
 .header__container .header__middle .header__middle--right .header__rigth--heart i {
@@ -1220,8 +1239,18 @@ svg path {
   color: #F7F7F7;
 }
 
-.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right i {
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right .fa-user {
   display: none;
+}
+
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right .header__rigth--heart {
+  position: relative;
+}
+
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right .header__rigth--heart .header__likes--count {
+  position: absolute;
+  top: 0;
+  left: 15px;
 }
 
 .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .bottom__menu--data {
@@ -2253,6 +2282,18 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     min-height: 2.9375rem;
   }
 
+  .header .header__poplikes {
+    width: 21.875rem;
+  }
+
+  .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
+    width: 7.5rem;
+  }
+
+  .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
+    font-size: 1.25rem;
+  }
+
   .header__container .header__middle {
     min-height: 5rem;
   }
@@ -2422,7 +2463,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
             align-items: center;
   }
 
-  .header__container .header__middle .header__middle--left .search__input {
+  .header__container .header__middle .header__middle--left .search-form .input-block .search__input {
     width: 100%;
     padding: 5px;
   }
@@ -2480,14 +2521,20 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     display: none;
   }
 
-  .header__container .header__middle .header__middle--left .search__input {
+  .header__container .header__middle .header__middle--left .search-form .input-block {
     position: absolute;
-    top: 0;
-    left: -100%;
+    left: -250px;
+    top: 60px;
     -webkit-transition: 0.3s ease;
     -o-transition: 0.3s ease;
     transition: 0.3s ease;
     border: 1px solid grey;
+    z-index: 99;
+  }
+
+  .header__container .header__middle .header__middle--left .search-form.active .input-block {
+    left: 25px;
+    width: 250px;
   }
 
   .header__container .header__bottom .header__bottom--left .bottom__categories {
@@ -2532,6 +2579,18 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 
   .header .header__top--content {
     min-height: 1.6875rem;
+  }
+
+  .header .header__poplikes {
+    width: 15.625rem;
+  }
+
+  .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
+    width: 5.625rem;
+  }
+
+  .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
+    font-size: 0.875rem;
   }
 
   .header__container .header__middle {
@@ -2754,6 +2813,42 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 @supports not (min-height: clamp( 1.6875rem , 1.2329545455rem  +  2.2727272727vw , 2.9375rem )) {
     .header .header__top--content {
       min-height: calc(1.6875rem + 1.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 15.625rem , 13.3522727273rem  +  11.3636363636vw , 21.875rem )) {
+    .header .header__poplikes {
+      width: clamp( 15.625rem , 13.3522727273rem  +  11.3636363636vw , 21.875rem );
+    }
+}
+
+@supports not (width: clamp( 15.625rem , 13.3522727273rem  +  11.3636363636vw , 21.875rem )) {
+    .header .header__poplikes {
+      width: calc(15.625rem + 6.25 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (width: clamp( 5.625rem , 4.9431818182rem  +  3.4090909091vw , 7.5rem )) {
+    .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
+      width: clamp( 5.625rem , 4.9431818182rem  +  3.4090909091vw , 7.5rem );
+    }
+}
+
+@supports not (width: clamp( 5.625rem , 4.9431818182rem  +  3.4090909091vw , 7.5rem )) {
+    .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--img {
+      width: calc(5.625rem + 1.875 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (font-size: clamp( 0.875rem , 0.7386363636rem  +  0.6818181818vw , 1.25rem )) {
+    .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
+      font-size: clamp( 0.875rem , 0.7386363636rem  +  0.6818181818vw , 1.25rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.875rem , 0.7386363636rem  +  0.6818181818vw , 1.25rem )) {
+    .header .header__poplikes .poplikes__list .poplikes__list--item .item__main--title {
+      font-size: calc(0.875rem + 0.375 * (100vw - 20rem) / 55);
     }
 }
 

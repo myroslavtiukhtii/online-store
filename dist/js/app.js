@@ -4680,7 +4680,7 @@
     };
     function documentActions(e) {
         const targetElement = e.target;
-        if (targetElement.classList.contains("search-form__icon")) document.querySelector(".search__input").classList.toggle("active");
+        if (targetElement.classList.contains("search-form__icon")) document.querySelector(".search-form").classList.toggle("active");
         if (targetElement.classList.contains("openbasket")) document.querySelector(".header__cart").classList.toggle("active");
         if (targetElement.classList.contains("closecartbtn") || targetElement.classList.contains("fa-xmark")) document.querySelector(".header__cart").classList.toggle("active");
         if (targetElement.classList.contains("header__rigth--user")) document.querySelector(".header__rigth--userspoiler").classList.toggle("active"); else document.querySelector(".header__rigth--userspoiler").classList.remove("active");
