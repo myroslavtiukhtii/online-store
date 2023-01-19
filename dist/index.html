@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230119121232">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230119143225">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230119121232" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230119121232" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230119143225" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230119143225" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -75,8 +75,12 @@
 							<div class="input-block">
 								<input v-model="search" class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
 								<ul v-show="search.length > 0" class="search-form--list">
-									<li v-for="item in filteredAndSorted">
+									<li class="form--list__item" v-for="item in filteredAndSorted">
 										{{item.title}}
+										<picture>
+											<source :srcset="item.srcImg" type="image/webp">
+											<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+										</picture>
 									</li>
 								</ul>
 							</div>
@@ -644,8 +648,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230119121232"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230119121232"></script>
+	<script src="js/app.min.js?_v=20230119143225"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230119143225"></script>
 	<script>
 		const {
 			createApp
@@ -786,6 +790,7 @@
 
 			data() {
 
+
 				return {
 					topProducts: topProducts,
 					topVegFruitProducts: topVegFruitProducts,
@@ -823,6 +828,9 @@
 				},
 
 				filteredAndSorted(item) {
+					let newArrProducts = [];
+					this.newArrProducts = this.topProducts.concat(this.topVegFruitProducts, this.newProducts);
+
 					// function to compare names
 					function compare(a, b) {
 						if (a.title < b.title) return -1;
@@ -830,7 +838,7 @@
 						return 0;
 					}
 
-					return this.topProducts.filter(item => {
+					return this.newArrProducts.filter(item => {
 						return item.title.toLowerCase().includes(this.search.toLowerCase())
 					}).sort(compare)
 				}
