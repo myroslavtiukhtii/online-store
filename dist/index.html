@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230119143225">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230119183648">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230119143225" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230119143225" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230119183648" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230119183648" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -61,8 +61,8 @@
 						<a href="#">
 							<picture><source srcset="img/logo-header.webp" type="image/webp"><img src="img/logo-header.png" alt="Main logo"></picture>
 						</a>
-						<i class="fa-solid fa-magnifying-glass search-form__icon"></i>
-						<div class="header__middle--select">
+						<!-- <i class="fa-solid fa-magnifying-glass search-form__icon"></i> -->
+						<div data-da=".header__bottom--right,992,0" class="header__middle--select">
 							<i class="icon fa-solid fa-location-dot"></i>
 							<select name="form[]" data-class-modif="form">
 								<option value="1" selected>Kyiv</option>
@@ -189,7 +189,7 @@
 						<div data-ripple class="bottom__right--cart">
 							<div class="openbasket"></div>
 							<i class="fa-solid fa-cart-shopping"></i>
-							CART
+							<span class="cart__title">CART</span>
 							<span class="cart__item"> {{ totalQuantityCartItems }} </span>
 							<i class="fa-solid fa-caret-down"></i>
 						</div>
@@ -648,8 +648,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230119143225"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230119143225"></script>
+	<script src="js/app.min.js?_v=20230119183648"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230119183648"></script>
 	<script>
 		const {
 			createApp
