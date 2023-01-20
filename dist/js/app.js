@@ -271,7 +271,7 @@
     function menuInit() {
         if (document.querySelector(".icon-menu")) document.addEventListener("click", (function(e) {
             if (bodyLockStatus && e.target.closest(".icon-menu")) document.documentElement.classList.toggle("menu-open");
-            if (e.target.closest(".page")) document.documentElement.classList.remove("menu-open");
+            if (e.target.closest(".page") || e.target.closest(".menu__list--item")) document.documentElement.classList.remove("menu-open");
         }));
     }
     function showMore() {

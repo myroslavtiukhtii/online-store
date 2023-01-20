@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230120182626">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230120190844">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230120182626" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230120182626" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230120190844" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230120190844" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -61,7 +61,6 @@
 						<a href="#">
 							<picture><source srcset="img/logo-header.webp" type="image/webp"><img src="img/logo-header.png" alt="Main logo"></picture>
 						</a>
-						<!-- <i class="fa-solid fa-magnifying-glass search-form__icon"></i> -->
 						<div data-da=".header__bottom--right,992,0" class="header__middle--select">
 							<i class="icon fa-solid fa-location-dot"></i>
 							<select name="form[]" data-class-modif="form">
@@ -76,7 +75,7 @@
 								<input v-model="search" class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
 								<ul v-show="search.length > 0" class="search-form--list">
 									<li class="form--list__item" v-for="item in filteredAndSorted">
-										{{item.title}}
+										<a href="#newproducts">{{item.title}}</a>
 										<picture>
 											<source :srcset="item.srcImg" type="image/webp">
 											<img class="item__main--img" :src="item.srcImg" :alt="item.title">
@@ -129,10 +128,18 @@
 						<nav class="header__bottom--menu">
 							<div class="bottom__menu--data" data-showmore data-showmore-media="992,max" data-da=".categories__menu--list,992,0">
 								<ul data-showmore-content="20" class="bottom__menu--list">
-									<li class="menu__list--item">Home</li>
-									<li class="menu__list--item">Product</li>
-									<li class="menu__list--item">Stores</li>
-									<li class="menu__list--item">Contact</li>
+									<li class="menu__list--item">
+										<a href="">Home</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#product">Product</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#stores">Stores</a>
+									</li>
+									<li class="menu__list--item">
+										<a href="#footer">Contact</a>
+									</li>
 								</ul>
 								<button hidden data-showmore-button type="button" class="block__more">
 									<span>
@@ -144,41 +151,52 @@
 								</button>
 							</div>
 							<div class="bottom__menu--datauser">
+								<!-- <ul class="categories__menu--list">
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/vegetables-icon.webp" type="image/webp"><img src="img/categories-icon/vegetables-icon.png" alt="Icon menu vegetables"></picture>
+									Vegetables & Fruits
+								</a>
+							</li>
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/grocery-icon.webp" type="image/webp"><img src="img/categories-icon/grocery-icon.png" alt="Icon menu grocery"></picture>
+									Grocery & Staples
+								</a>
+							</li>
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/dairy-icon.webp" type="image/webp"><img src="img/categories-icon/dairy-icon.png" alt="Icon menu dairy"></picture>
+									Dairy & Eggs
+								</a>
+							</li>
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/beverages-icon.webp" type="image/webp"><img src="img/categories-icon/beverages-icon.png" alt="Icon menu beverages"></picture>
+									Beverages
+								</a>
+							</li>
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/snacks-icon.webp" type="image/webp"><img src="img/categories-icon/snacks-icon.png" alt="Icon menu snacks"></picture>
+									Snacks
+								</a>
+							</li>
+							<li class="menu__list--item">
+								<a href="#">
+									<picture><source srcset="img/categories-icon/home-icon.webp" type="image/webp"><img src="img/categories-icon/home-icon.png" alt="Icon menu home"></picture>
+									Home Care
+								</a>
+							</li>
+						</ul> -->
 								<ul class="categories__menu--list">
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/vegetables-icon.webp" type="image/webp"><img src="img/categories-icon/vegetables-icon.png" alt="Icon menu vegetables"></picture>
-											Vegetables & Fruits
-										</a>
-									</li>
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/grocery-icon.webp" type="image/webp"><img src="img/categories-icon/grocery-icon.png" alt="Icon menu grocery"></picture>
-											Grocery & Staples
-										</a>
-									</li>
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/dairy-icon.webp" type="image/webp"><img src="img/categories-icon/dairy-icon.png" alt="Icon menu dairy"></picture>
-											Dairy & Eggs
-										</a>
-									</li>
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/beverages-icon.webp" type="image/webp"><img src="img/categories-icon/beverages-icon.png" alt="Icon menu beverages"></picture>
-											Beverages
-										</a>
-									</li>
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/snacks-icon.webp" type="image/webp"><img src="img/categories-icon/snacks-icon.png" alt="Icon menu snacks"></picture>
-											Snacks
-										</a>
-									</li>
-									<li class="menu__list--item">
-										<a href="#">
-											<picture><source srcset="img/categories-icon/home-icon.webp" type="image/webp"><img src="img/categories-icon/home-icon.png" alt="Icon menu home"></picture>
-											Home Care
+									<li class="menu__list--item" v-for="(item, index) in categories" @click="activate(index); content()">
+										<picture>
+											<source :srcset="item.srcImg" type="image/webp">
+											<img class="item__img" :src="item.srcImg" :alt="item.title">
+										</picture>
+										<a href="#filter">
+											<span class="item__title"> {{item.title}} </span>
 										</a>
 									</li>
 								</ul>
@@ -298,7 +316,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="categories">
+			<section id="stores" class="categories">
 				<div class="categories__container">
 					<h2 class="categories__subtitle">
 						Shop by
@@ -306,7 +324,7 @@
 					<h3 class="categories__title">
 						Categories
 					</h3>
-					<div class="swiper-categories">
+					<div id="filter" class="swiper-categories">
 						<ul class="categories__list swiper-wrapper">
 							<li class="categories__list--item swiper-slide" v-for="(item, index) in categories" :class="[index === active ? 'tabs__nav_tab--active' : '']" @click="activate(index); content()">
 								<picture>
@@ -439,7 +457,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="products vegetables-and-fruits">
+			<section id="product" class="products vegetables-and-fruits">
 				<div class="products__container">
 					<h2 class="products__subtitle">For You</h2>
 					<h3 class="products__title">Top Vegetables & Fruits Products</h3>
@@ -481,7 +499,7 @@
 					</div>
 				</div>
 			</section>
-			<section class="products new-products">
+			<section id="newproducts" class="products new-products">
 				<div class="products__container">
 					<h2 class="products__subtitle">For You</h2>
 					<h3 class="products__title">Added new Products</h3>
@@ -524,7 +542,7 @@
 				</div>
 			</section>
 		</main>
-		<footer class="footer">
+		<footer id="footer" class="footer">
 			<div class="footer__container">
 				<div class="footer__blockmenu">
 					<ul class="footer__blockmenu--address">
@@ -664,8 +682,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230120182626"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230120182626"></script>
+	<script src="js/app.min.js?_v=20230120190844"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230120190844"></script>
 	<script>
 		const {
 			createApp
@@ -819,7 +837,7 @@
 			{
 				title: "Somya",
 				type: "home",
-				newPrice: "$12.50",
+				newPrice: "$12",
 				oldPrice: "$15",
 				srcImg: "img/newproducts/products-somya.png",
 				quantity: "0"
@@ -827,7 +845,7 @@
 			{
 				title: "Rice",
 				type: "grocery",
-				newPrice: "$2.50",
+				newPrice: "$2",
 				oldPrice: "$5",
 				srcImg: "img/newproducts/products-rice.png",
 				quantity: "0"
@@ -835,7 +853,7 @@
 			{
 				title: "Pepsi",
 				type: "beverages",
-				newPrice: "$2.50",
+				newPrice: "$2",
 				oldPrice: "$5",
 				srcImg: "img/newproducts/products-pepsi.png",
 				quantity: "0"

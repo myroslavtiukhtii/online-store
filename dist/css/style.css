@@ -538,6 +538,10 @@ svg path {
      object-fit: contain;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1263,6 +1267,16 @@ svg path {
   -o-transition: 0.3s ease;
   transition: 0.3s ease;
   overflow: auto;
+}
+
+.header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .menu__list--item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
 }
 
 .header__container .header__bottom .header__bottom--left .header__bottom--menu .categories__menu--list .header__middle--right {
