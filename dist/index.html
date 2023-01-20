@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230120190844">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230120200730">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230120190844" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230120190844" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230120200730" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230120200730" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -72,7 +72,7 @@
 						</div>
 						<div class="search-form">
 							<div class="input-block">
-								<input v-model="search" class="search__input" type="text" placeholder="&#xF002;  Search for products..." style="font-family:Arial, FontAwesome">
+								<input v-model="search" class="search__input" type="text" placeholder="&#xF002;  Search..." style="font-family:Arial, FontAwesome">
 								<ul v-show="search.length > 0" class="search-form--list">
 									<li class="form--list__item" v-for="item in filteredAndSorted">
 										<a href="#newproducts">{{item.title}}</a>
@@ -100,7 +100,7 @@
 								</li>
 							</ul>
 						</div>
-						<a href="#" class="header__rigth--heart">
+						<a href="#" class="header__rigth--heart openCartLikesModal">
 							<h3 v-show="totalLikesCountItems > 0" class="header__likes--count">
 								{{ totalLikesCountItems }}
 							</h3>
@@ -682,8 +682,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230120190844"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230120190844"></script>
+	<script src="js/app.min.js?_v=20230120200730"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230120200730"></script>
 	<script>
 		const {
 			createApp
@@ -856,6 +856,102 @@
 				newPrice: "$2",
 				oldPrice: "$5",
 				srcImg: "img/newproducts/products-pepsi.png",
+				quantity: "0"
+			},
+			{
+				title: "Bonaqua",
+				type: "beverages",
+				newPrice: "$2",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-bonaqva.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Buronka",
+				type: "milk",
+				newPrice: "$2",
+				oldPrice: "$9",
+				srcImg: "img/newproducts/products-buronka.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Cola",
+				type: "beverages",
+				newPrice: "$2",
+				oldPrice: "$33",
+				srcImg: "img/newproducts/products-cola.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Fanta",
+				type: "beverages",
+				newPrice: "$2",
+				oldPrice: "$7",
+				srcImg: "img/newproducts/products-fanta.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Ferma",
+				type: "milk",
+				newPrice: "$12",
+				oldPrice: "$19",
+				srcImg: "img/newproducts/products-ferma.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Galichina",
+				type: "milk",
+				newPrice: "$6",
+				oldPrice: "$19",
+				srcImg: "img/newproducts/products-galichina.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Jaffa",
+				type: "beverages",
+				newPrice: "$2",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-jaffa.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Perwoll",
+				type: "home",
+				newPrice: "$2",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-perwoll.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Shampusik",
+				type: "beverages",
+				newPrice: "$2",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-shanpusik.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Shotka",
+				type: "home",
+				newPrice: "$12",
+				oldPrice: "$15",
+				srcImg: "img/newproducts/products-shotka.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Vanish",
+				type: "home",
+				newPrice: "$22",
+				oldPrice: "$25",
+				srcImg: "img/newproducts/products-vanich.jpg",
+				quantity: "0"
+			},
+			{
+				title: "Zewa",
+				type: "home",
+				newPrice: "$32",
+				oldPrice: "$55",
+				srcImg: "img/newproducts/products-zewa.jpg",
 				quantity: "0"
 			},
 

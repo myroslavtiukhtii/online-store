@@ -1101,7 +1101,7 @@ html {
   font-weight: 500;
 }
 
-.header__container .header__middle .header__middle--right .header__rigth--heart i {
+.header__container .header__middle .header__middle--right .header__rigth--heart .fa-heart {
   font-size: 20px;
   -webkit-transition: 0.3s ease-in;
   -o-transition: 0.3s ease-in;
@@ -2557,6 +2557,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 
 @media (max-width: 75em) {
   .header__rigth--userspoiler {
+    display: block;
     position: relative;
     right: 0;
     opacity: 1;
@@ -2566,6 +2567,8 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     height: -moz-max-content;
     height: max-content;
     top: 0;
+    -webkit-box-shadow: unset;
+            box-shadow: unset;
   }
 
   .header__container .header__bottom .header__bottom--right .bottom__right--cart {
@@ -3527,7 +3530,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     color: #7FAD39;
   }
 
-  .header__container .header__middle .header__middle--right .header__rigth--heart i:hover {
+  .header__container .header__middle .header__middle--right .header__rigth--heart .fa-heart:hover {
     -webkit-transform: rotate(5deg);
         -ms-transform: rotate(5deg);
             transform: rotate(5deg);
