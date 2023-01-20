@@ -560,7 +560,7 @@ html {
   right: 0;
   padding: 15px;
   width: 100px;
-  height: 0;
+  height: 100px;
   right: -100%;
   background-color: #F7F7F7;
   z-index: 5;
@@ -601,7 +601,6 @@ html {
   display: block;
   opacity: 1;
   right: 0;
-  height: 100px;
 }
 
 .products__list .products__list--item {
