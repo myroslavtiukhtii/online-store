@@ -799,6 +799,13 @@ svg path {
   width: 101px;
 }
 
+.tabs__nav_tab--active {
+  background-color: #7FAD39 !important;
+  color: #f8f7f7 !important;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset !important;
+}
+
 .header {
   border-bottom: 2px solid #E5E5E5;
   padding-bottom: 5px;
@@ -1952,6 +1959,7 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   position: relative;
   padding-top: 30px;
   padding-bottom: 60px;
+  overflow: visible;
 }
 
 .mainslider__container .swiper .swiper-pagination {
@@ -2005,6 +2013,10 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
   font-size: 14px;
   line-height: 30px;
   color: #7FAD39;
+}
+
+.categories__container .swiper-categories {
+  margin-bottom: 25px;
 }
 
 .categories__container .swiper-categories .categories__list .categories__list--item {
@@ -2348,6 +2360,10 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     width: 11.625rem;
   }
 
+  .products__list .products__list--item .item__main .item__main--img {
+    height: 9.0625rem;
+  }
+
   .header .header__top--content {
     gap: 1.25rem;
   }
@@ -2670,6 +2686,10 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
     width: 7.5rem;
   }
 
+  .products__list .products__list--item .item__main .item__main--img {
+    height: 6.25rem;
+  }
+
   .header .header__top--content {
     gap: 0.3125rem;
   }
@@ -2902,6 +2922,18 @@ html.menu-open .header .header__bottom .header__bottom--left .header__bottom--me
 @supports not (width: clamp( 7.5rem , 6rem  +  7.5vw , 11.625rem )) {
     .products__list .products__list--item .item__main .item__main--img {
       width: calc(7.5rem + 4.125 * (100vw - 20rem) / 55);
+    }
+}
+
+@supports (height: clamp( 6.25rem , 5.2272727273rem  +  5.1136363636vw , 9.0625rem )) {
+    .products__list .products__list--item .item__main .item__main--img {
+      height: clamp( 6.25rem , 5.2272727273rem  +  5.1136363636vw , 9.0625rem );
+    }
+}
+
+@supports not (height: clamp( 6.25rem , 5.2272727273rem  +  5.1136363636vw , 9.0625rem )) {
+    .products__list .products__list--item .item__main .item__main--img {
+      height: calc(6.25rem + 2.8125 * (100vw - 20rem) / 55);
     }
 }
 

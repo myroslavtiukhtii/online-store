@@ -6,14 +6,14 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="css/style.min.css?_v=20230119211006">
+	<link rel="stylesheet" href="css/style.min.css?_v=20230120182626">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230119211006" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230119211006" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap&_v=20230120182626" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css?_v=20230120182626" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -308,29 +308,48 @@
 					</h3>
 					<div class="swiper-categories">
 						<ul class="categories__list swiper-wrapper">
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/vegetables-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/vegetables-icon.png" alt="Vegetables"></picture>
-								<span class="item__title">Vegetables & Fruits</span>
+							<li class="categories__list--item swiper-slide" v-for="(item, index) in categories" :class="[index === active ? 'tabs__nav_tab--active' : '']" @click="activate(index); content()">
+								<picture>
+									<source :srcset="item.srcImg" type="image/webp">
+									<img class="item__img" :src="item.srcImg" :alt="item.title">
+								</picture>
+								<span class="item__title"> {{item.title}} </span>
 							</li>
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/grocery-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/grocery-icon.png" alt="Grocery & Staples"></picture>
-								<span class="item__title">Grocery & Staples</span>
-							</li>
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/dairy-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/dairy-icon.png" alt="Dairy & Eggs"></picture>
-								<span class="item__title">Dairy & Eggs</span>
-							</li>
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/beverages-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/beverages-icon.png" alt="Beverages"></picture>
-								<span class="item__title">Beverages</span>
-							</li>
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/snacks-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/snacks-icon.png" alt="Snacks"></picture>
-								<span class="item__title">Snacks</span>
-							</li>
-							<li class="categories__list--item swiper-slide">
-								<picture><source srcset="img/categories-icon/home-icon.webp" type="image/webp"><img class="item__img" src="img/categories-icon/home-icon.png" alt="Home Care"></picture>
-								<span class="item__title">Home Care</span>
+						</ul>
+					</div>
+					<div class="swiper-filter">
+						<ul v-show="categoriesType" class="products__list swiper-wrapper">
+							<li v-for="item in sortedCategories" class="products__list--item swiper-slide">
+								<div class="item__main">
+									<picture>
+										<source :srcset="item.srcImg" type="image/webp">
+										<img class="item__main--img" :src="item.srcImg" :alt="item.title">
+									</picture>
+									<span class="item__main--instock">Available(in stock)</span>
+									<h3 class="item__main--title"> {{ item.title }} </h3>
+									<div class="item__main--price">
+										<span class="item__main--newprice"> {{ item.newPrice }} </span>
+										<span class="item__main--oldprice"> {{ item.oldPrice }} </span>
+									</div>
+								</div>
+								<div class="list__item--discount">
+									<span class="discount__price">15%Off</span>
+								</div>
+								<div @click="likedItem(item)" class="list__item--like">
+									<i class="fa-regular fa-heart"></i>
+								</div>
+								<div class="list__item--quantity">
+									<button @click="decrementQuantity(item)" class="quantity__minus">
+										<i class="fa-solid fa-minus"></i>
+									</button>
+									<span class="quantity__items"> {{ item.quantity }} </span>
+									<button @click="incrementQuantity(item)" class="quantity__plus">
+										<i class="fa-solid fa-plus"></i>
+									</button>
+								</div>
+								<div @click="addItemToBasket(item, $event)" class="list__item--basket">
+									<i class="fa-solid fa-cart-shopping"></i>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -645,8 +664,8 @@
 			</div>
 		</footer>
 	</div>
-	<script src="js/app.min.js?_v=20230119211006"></script>
-	<script src="https://unpkg.com/vue@next?_v=20230119211006"></script>
+	<script src="js/app.min.js?_v=20230120182626"></script>
+	<script src="https://unpkg.com/vue@next?_v=20230120182626"></script>
 	<script>
 		const {
 			createApp
@@ -780,6 +799,79 @@
 				oldPrice: "$32",
 				srcImg: "img/newproducts/products-egg.png",
 				quantity: "0"
+			},
+			{
+				title: "Bulgur",
+				type: "grocery",
+				newPrice: "$7",
+				oldPrice: "$12",
+				srcImg: "img/newproducts/products-bulgur.png",
+				quantity: "0"
+			},
+			{
+				title: "Max Bright",
+				type: "home",
+				newPrice: "$12",
+				oldPrice: "$15",
+				srcImg: "img/newproducts/products-maxbright.png",
+				quantity: "0"
+			},
+			{
+				title: "Somya",
+				type: "home",
+				newPrice: "$12.50",
+				oldPrice: "$15",
+				srcImg: "img/newproducts/products-somya.png",
+				quantity: "0"
+			},
+			{
+				title: "Rice",
+				type: "grocery",
+				newPrice: "$2.50",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-rice.png",
+				quantity: "0"
+			},
+			{
+				title: "Pepsi",
+				type: "beverages",
+				newPrice: "$2.50",
+				oldPrice: "$5",
+				srcImg: "img/newproducts/products-pepsi.png",
+				quantity: "0"
+			},
+
+		];
+
+		const categories = [{
+				title: "Vegetables & Fruits",
+				type: "fruit",
+				srcImg: "img/categories-icon/vegetables-icon.png",
+			},
+			{
+				title: "Grocery & Staples",
+				type: "grocery",
+				srcImg: "img/categories-icon/grocery-icon.png",
+			},
+			{
+				title: "Dairy & Eggs",
+				type: "milk",
+				srcImg: "img/categories-icon/dairy-icon.png",
+			},
+			{
+				title: "Beverages",
+				type: "beverages",
+				srcImg: "img/categories-icon/beverages-icon.png"
+			},
+			{
+				title: "Snacks",
+				type: "snacks",
+				srcImg: "img/categories-icon/snacks-icon.png"
+			},
+			{
+				title: "Home Care",
+				type: "home",
+				srcImg: "img/categories-icon/home-icon.png"
 			}
 		];
 
@@ -787,14 +879,16 @@
 
 			data() {
 
-
 				return {
 					topProducts: topProducts,
 					topVegFruitProducts: topVegFruitProducts,
 					newProducts: newProducts,
 					cartItems: [],
 					cartLikes: [],
+					active: '',
+					categories: categories,
 					search: '',
+					categoriesType: ''
 				}
 
 			},
@@ -838,7 +932,23 @@
 					return this.newArrProducts.filter(item => {
 						return item.title.toLowerCase().includes(this.search.toLowerCase())
 					}).sort(compare)
-				}
+				},
+
+				sortedCategories(item) {
+					let newArrProducts = [];
+					this.newArrProducts = this.topProducts.concat(this.topVegFruitProducts, this.newProducts);
+
+					function compare(a, b) {
+						if (a.type < b.type) return -1;
+						if (a.type > b.type) return 1;
+						return 0;
+					}
+
+					return this.newArrProducts.filter(item => {
+						return item.type.toLowerCase().includes(this.categoriesType.toLowerCase())
+					}).sort(compare)
+				},
+
 			},
 
 			methods: {
@@ -885,6 +995,15 @@
 						this.cartLikes.splice(this.cartLikes.indexOf(item), 1);
 						event.currentTarget.classList.toggle('active');
 					}
+				},
+
+				activate(index) {
+					this.active = index
+				},
+
+				content() {
+					this.categoriesType = this.categories[this.active].type;
+					return this.categoriesType;
 				},
 			}
 		}).mount("#app");

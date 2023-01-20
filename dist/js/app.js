@@ -4418,18 +4418,13 @@
             speed: 800,
             autoplay: true,
             loop: true,
-            effect: "fade",
-            autoplay: {
-                delay: 3e3,
-                disableOnInteraction: false
-            },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true
             },
             breakpoints: {
                 320: {
-                    slidesPerView: 1.1,
+                    slidesPerView: 1,
                     spaceBetween: 0,
                     autoHeight: true
                 },
@@ -4442,7 +4437,7 @@
                     spaceBetween: 20
                 },
                 1200: {
-                    slidesPerView: 3.2,
+                    slidesPerView: 3,
                     spaceBetween: 30
                 }
             },
@@ -4456,7 +4451,6 @@
             spaceBetween: 0,
             autoHeight: true,
             speed: 800,
-            loop: true,
             breakpoints: {
                 320: {
                     slidesPerView: 2,
@@ -4473,6 +4467,35 @@
                 },
                 1200: {
                     slidesPerView: 6,
+                    spaceBetween: 30
+                }
+            },
+            on: {}
+        });
+        if (document.querySelector(".swiper-filter")) new core(".swiper-filter", {
+            modules: [ Navigation, Autoplay ],
+            observer: true,
+            observeParents: true,
+            slidesPerView: 1,
+            spaceBetween: 0,
+            autoHeight: true,
+            speed: 800,
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.5,
+                    spaceBetween: 15,
+                    autoHeight: true
+                },
+                500: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 20
+                },
+                992: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                },
+                1200: {
+                    slidesPerView: 5,
                     spaceBetween: 30
                 }
             },
